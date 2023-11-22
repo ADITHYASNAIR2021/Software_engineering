@@ -1,0 +1,10 @@
+django
+numpy
+pandas
+pillow
+matplotlib
+opencv-python
+scikit-learn
+daphne
+psycopg2
+gunicorn
