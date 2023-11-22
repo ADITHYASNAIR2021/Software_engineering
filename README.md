@@ -38,9 +38,9 @@ step4: open the browser and go to http://localhost:8000
 
 ## Authors
 
-[Adithya S Nair](https://github.com/ADITHYASNAIR2021)
-[Athul Gireesh](https://github.com/Athulg19)
-[Anoop Boby Manuel](https://github.com/Anoob69)
+* [Adithya S Nair](https://github.com/ADITHYASNAIR2021)
+* [Athul Gireesh](https://github.com/Athulg19)
+* [Anoop Boby Manuel](https://github.com/Anoob69)
 
 ## License
 
