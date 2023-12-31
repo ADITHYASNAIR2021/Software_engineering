@@ -1,13 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health-app</title>
+    <title>Health Predictor</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
 </head>
 <body>
-    <h1>Health predictor app</h1>
-    <p>Health predictor app is a web application that predicts the health of a person based on the symptoms entered by the user.</p>
-    {{result}}
+    <header>
+        <h1>Health Predictor</h1>
+        <p>Predicting diseases early using AI and ML.</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="{% static 'healthcare.jpg' %}" alt="Healthcare image"><br>
+            <h2>Take control of your health</h2>
+            <p>Predict potential health risks and make informed decisions for a healthier future.</p> <br><br><br><br>
+            <a href="alzheimers"><button class="cta">Get Started</button></a>
+        </section>
+
+        <section class="features">
+            <h2>How it works</h2>
+            <ul>
+                <li>
+                    <i class="fas fa-brain"></i>
+                    <h3>Powerful AI & ML</h3>
+                    <p>Our models are trained on extensive medical data to provide accurate predictions.</p>
+                </li>
+                <li>
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Secure and confidential</h3>
+                    <p>Your personal information is protected with the highest security standards.</p>
+                </li>
+                <li>
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Personalized insights</h3>
+                    <p>Get tailored recommendations based on your unique health profile.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="about">
+            <h2>About the project</h2>
+            <p>This project is designed to make healthcare more proactive and accessible for everyone.</p>
+            <p>We believe in the power of AI and ML to revolutionize healthcare and empower individuals to take charge of their well-being.</p>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to start your health journey?</h2>
+            <button>Predict your risks now</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Health Predictor</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/f25f54a015.js" crossorigin="anonymous"></script>
 </body>
 </html>

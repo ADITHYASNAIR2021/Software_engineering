@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html
+lang="en">
+{% load static %}
+<head>  
+<meta
+charset="UTF-8">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+<title>Alzheimer's Severity Prediction</title>
+    <link rel="stylesheet" href="{% static 'alzheimers.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Alzheimer's Severity Prediction</h1>
+    
+            <div class="info-section">
+                <h2>What is Alzheimer's Disease?</h2>
+                <p>Alzheimer's disease is a progressive brain disorder that causes memory loss, thinking problems, and behavioral changes. It is the most common cause of dementia, which is a group of symptoms that affect intellectual and social abilities severely enough to interfere with daily life.</p>
+    
+                <h2>Stages of Alzheimer's</h2>
+                <ul>
+                    <li><b>Mild (Early Stage)</b>: Mild memory loss, difficulty finding words, decreased judgment, challenges with planning and organizing.</li>
+                    <li><b>Moderate (Middle Stage)</b>: Increased memory loss, difficulty performing familiar tasks, confusion about time and place, personality and behavior changes, difficulty with language.</li>
+                    <li><b>Severe (Late Stage)</b>: Loss of awareness of surroundings, inability to communicate, requiring assistance with daily activities, significant personality and behavioral changes.</li>
+                </ul>
+    
+                <h2>Recovery Chances</h2>
+                <p>Alzheimer's is a progressive disease with no current cure. While there are medications and treatments that can help manage symptoms and slow the progression, there is no way to reverse the damage caused by the disease.</p>
+    
+                <h2>Resisting Alzheimer's</h2>
+                <p>While there is no guaranteed way to prevent Alzheimer's, research suggests that certain lifestyle factors may help reduce the risk:</p>
+                <ul>
+                    <li>Regular physical exercise</li>
+                    <li>Mentally stimulating activities</li>
+                    <li>Healthy diet</li>
+                    <li>Managing cardiovascular risk factors (e.g., high blood pressure, cholesterol)</li>
+                    <li>Engaging in social activities</li>
+                    <li>Getting adequate sleep</li>
+                </ul>
+    
+                <h2>Medications</h2>
+                <p>There are currently two main classes of medications approved for Alzheimer's:</p>
+                <ul>
+                    <li>Cholinesterase Inhibitors: These drugs help improve memory and thinking by increasing levels of a chemical messenger in the brain called acetylcholine.</li>
+                    <li>Memantine: This drug blocks the effects of a chemical in the brain called glutamate, which can be harmful in excess amounts in Alzheimer's.</li>
+                </ul>
+            </div>
+    
+            </div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="upload-section">
+                <input type="file" name="image" id="image" onchange="previewImage()">
+                <label for="image">
+                    <img src="{% static 'upload.png' %}" alt="Upload icon">
+                    <span>Choose MRI Image</span>
+                </label>
+                <div id="image-preview"></div>
+            </div>
+            <div class="button-section">
+                <button type="submit">Predict</button>
+                <button type="button" onclick="clearImage()">Clear</button>
+            </div>
+        </form>
+
+        <div class="prediction-section">
+            <img id="predicted-image" src="{% if image %}{{ image.url }}{% endif %}" alt="Uploaded Image">
+            {% if prediction %}
+                <h2>Predicted Severity: {{ prediction }}</h2>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function previewImage() {
+            const image = document.getElementById('image');
+            const preview = document.getElementById('image-preview');
+
+            const file = image.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        window.addEventListener('load', function() {
+            sessionStorage.removeItem('previewImageUrl'); // Clear any stored preview image URL on page load
+        });
+
+        function clearImage() {
+            const preview = document.getElementById('image-preview');
+            const predictedImage = document.getElementById('predicted-image');
+            const predictionSection = document.querySelector('.prediction-section');
+
+            preview.innerHTML = '';
+            predictedImage.src = ''; // Clear the predicted image
+            predictionSection.innerHTML = ''; // Clear the prediction text
+
+            const imageInput = document.getElementById('image');
+            imageInput.value = '';
+            sessionStorage.removeItem('previewImageUrl');
+        }
+    </script>
+</body>
+</html>

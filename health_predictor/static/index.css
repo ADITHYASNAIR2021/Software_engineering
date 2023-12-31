@@ -1,0 +1,110 @@
+/* General styling */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+  }
+  
+  header {
+    text-align: center;
+    padding: 50px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  h1 {
+    font-size: 3em;
+    margin-bottom: 0;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 50px;
+  }
+  
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  p {
+    font-size: 1.1em;
+    line-height: 1.5;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .about{
+    text-align: center;
+  }
+  .cta{
+    text-align: center;
+  }
+  /* Hero section */
+  .hero {
+    text-align: center;
+    position: relative;
+  }
+  
+  .hero h2 {
+    font-size: 2em;
+    margin-top: 50px;
+  }
+  
+  .hero .cta {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Features section */
+  .features ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .features li {
+    flex-basis: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .features i {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+  
+  /* About section */
+  .about h2 {
+    text-align: center;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  .features h2{
+    text-align: center;
+    font: 3em bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
